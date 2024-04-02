@@ -1,0 +1,41 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ex: <https://example.com/>
+PREFIX solid: <http://www.w3.org/ns/solid/terms#>
+BASE <http://schema.org/>
+PREFIX schem: <http://schema.org/>
+
+ex:BookSh {
+  a [<Book> <CreativeWork> <Thing>] ;
+  <name> xsd:string 
+      // rdfs:label '''name'''
+      // rdfs:comment '''The name of the book ''' ;
+  <author> @schem:Person ?
+      // rdfs:label '''author'''
+      // rdfs:comment '''The author of the book. ''' ;
+  <numberOfPages> xsd:integer
+      // rdfs:label '''numberOfPages'''
+      // rdfs:comment '''The number of pages in the book ''' ;
+  <startDate> xsd:dateTime
+      // rdfs:label '''startDate'''
+      // rdfs:comment '''The time and date at which the event starts. ''' ;
+  <datePublished> xsd:dateTime
+      // rdfs:label '''datePublished'''
+      // rdfs:comment '''The time and date at which the event ends. ''' ;
+  <about> schem:Thing
+      // rdfs:label '''about'''
+      // rdfs:comment '''Additional information about the book''' ;
+}
+
+#schem:Person IRI {
+schem:Person {
+  a [ foaf:Person ] ;
+  <givenName> schem:Text ?; 
+  <familyName> schem:Text ?;
+  foaf:name xsd:string ?;
+  solid:oidcIssuer xsd:string ?;
+}
+// rdfs:label '''Event'''
+// rdfs:comment '''A calendar event, this could be an online meeting or in-person event'''
