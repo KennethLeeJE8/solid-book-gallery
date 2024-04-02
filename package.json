@@ -5,6 +5,7 @@
   "dependencies": {
     "@ldo/ldo": "^0.0.1-alpha.24",
     "@ldo/solid-react": "^0.0.1-alpha.24",
+    "@solid/community-server": "^7.0.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -22,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "pod": "community-solid-server -c config/solid-config.json -p 3001 -f data/",
     "eject": "react-scripts eject",
     "build:ldo": "ldo build --input src\\.shapes --output src\\.ldo"
   },
